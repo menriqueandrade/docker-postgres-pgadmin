@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: docker-postgres-pgadmin
+    env: docker
+    plan: free
+    dockerContext: .
+    dockerfilePath: ""
+    dockerComposePath: docker-compose.yml
+    autoDeploy: true
