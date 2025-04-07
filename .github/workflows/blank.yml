@@ -22,16 +22,6 @@ jobs:
           docker pull postgres:latest
           docker pull dpage/pgadmin4:latest
 
-      - name: Set up docker-compose services
+      - name: Create custom pgadmin image (optional)
         run: |
-          docker-compose up -d
-
-      - name: Wait for services to be ready
-        run: |
-          sleep 15
-          docker ps
-
-      # Aquí puedes agregar comandos para testear la conexión a la DB o pgAdmin
-
-      - name: Shut down services
-        run: docker-compose down
+          docker build -t my-pgadmin ./path/to/pgadmin/
