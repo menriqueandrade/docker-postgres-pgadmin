@@ -1,0 +1,23 @@
+app = "pgadmin-postgres-app"
+primary_region = "scl"
+
+[env]
+  POSTGRES_USER = "admin"
+  POSTGRES_PASSWORD = "admin"
+  POSTGRES_DB = "mydb"
+  PGADMIN_DEFAULT_EMAIL = "admin@admin.com"
+  PGADMIN_DEFAULT_PASSWORD = "admin"
+
+[[services]]
+  internal_port = 80
+  protocol = "tcp"
+
+  [[services.ports]]
+    port = 8080 # acceso a pgAdmin desde navegador
+
+[[services]]
+  internal_port = 5432
+  protocol = "tcp"
+
+  [[services.ports]]
+    port = 5432 # acceso a PostgreSQL desde cliente externo (opcional)
